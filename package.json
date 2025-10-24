@@ -1,0 +1,43 @@
+{
+  "name": "@phoez/didactic-spoon",
+  "description": "RockPaperScissors",
+  "private": true,
+  "version": "1.0.0",
+  "author": {
+    "name": "phoez",
+    "url": "https://github.com/phoez"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "5.3.0",
+    "@playwright/test": "^1.56.1",
+    "ethers": "^6.0.0",
+    "playwright": "^1.56.1",
+    "typescript": "^5.9.3"
+  },
+  "devDependencies": {
+    "forge-std": "github:foundry-rs/forge-std#v1.9.7",
+    "prettier": "^3.5",
+    "solhint": "^5.1"
+  },
+  "keywords": [
+    "blockchain",
+    "ethereum",
+    "forge",
+    "foundry",
+    "smart-contracts",
+    "solidity",
+    "template"
+  ],
+  "scripts": {
+    "clean": "rm -rf cache out",
+    "build": "forge build",
+    "forge-check": "forge fmt --check",
+    "forge-write": "forge fmt",
+    "lint": "bun run lint:sol && bun run prettier:check",
+    "lint:sol": "bun run forge-check && bun solhint \"{script,src,tests}/**/*.sol\"",
+    "prettier:check": "prettier --check \"**/*.{json,md,yml}\"",
+    "prettier:write": "prettier --write \"**/*.{json,md,yml}\"",
+    "test:local": "forge test --fork-url http://127.0.0.1:8545 -v",
+    "test:infura": "forge test --fork-url https://sepolia.infura.io/v3/$INFURA_API_KEY -v"
+  }
+}
